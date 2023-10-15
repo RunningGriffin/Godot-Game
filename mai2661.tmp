@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://lffcy7ac0080"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vn4nm"]
+[ext_resource type="PackedScene" uid="uid://xoox7aho0i6m" path="res://character_body.tscn" id="2_nvd56"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_xu7ia"]
+[ext_resource type="Script" path="res://left_hand.gd" id="3_tlmpc"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_xdfrx"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="4_vgd3x"]
+[ext_resource type="Script" path="res://right_hand.gd" id="5_p0qgy"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_cftg6"]
+
+[sub_resource type="Sky" id="Sky_qbqh3"]
+sky_material = SubResource("PhysicalSkyMaterial_cftg6")
+
+[sub_resource type="Environment" id="Environment_20rn7"]
+background_mode = 2
+sky = SubResource("Sky_qbqh3")
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_vn4nm")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79846, 0.645285)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_xu7ia")]
+visible = false
+script = ExtResource("3_tlmpc")
+joystick_action = null
+
+[node name="MovementCrouch" parent="XROrigin3D/LeftHand/LeftHand" instance=ExtResource("4_vgd3x")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("3_xdfrx")]
+visible = false
+script = ExtResource("5_p0qgy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_20rn7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.983293, -0.128714, 0.128714, 0, 0.707107, 0.707107, -0.18203, -0.695293, 0.695293, 0.0317788, 3, -0.0180845)
+
+[node name="CharacterBody" parent="." instance=ExtResource("2_nvd56")]
+transform = Transform3D(0.999977, 0, 0.0068242, -0.00254004, 0.928148, 0.372202, -0.00633387, -0.37221, 0.928127, 0.00564003, 1.32626, -3.75769)
+
+[connection signal="input_vector2_changed" from="XROrigin3D/LeftHand" to="CharacterBody" method="_on_left_hand_input_vector_2_changed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://xoox7aho0i6m"]
+
+[ext_resource type="Script" path="res://character_body.gd" id="1_b0o01"]
+[ext_resource type="Texture2D" uid="uid://bhfpmglxcoljg" path="res://icon.svg" id="1_qcsye"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00ae8"]
+size = Vector3(1.257, 1.1, 1)
+
+[node name="CharacterBody" type="CharacterBody3D"]
+transform = Transform3D(0.999977, 0, 0.0068242, -0.00254004, 0.928148, 0.372202, -0.00633387, -0.37221, 0.928127, 0.00564003, -0.0169201, 0.0115376)
+script = ExtResource("1_b0o01")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, -9.31322e-10, 0, 1, 0, 9.31322e-10, 0, 1, 0, 0.539, 0)
+shape = SubResource("BoxShape3D_00ae8")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, -0.000111375, -4.85224e-05, 0.000121481, 0.920293, 0.391229, 1.08173e-06, -0.391229, 0.920293, -9.31323e-10, 0.589521, -1.30385e-08)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D"]
+texture = ExtResource("1_qcsye")
