@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://lffcy7ac0080"]
+[gd_scene load_steps=12 format=3 uid="uid://lffcy7ac0080"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vn4nm"]
 [ext_resource type="PackedScene" uid="uid://xoox7aho0i6m" path="res://character_body.tscn" id="2_nvd56"]
+[ext_resource type="Script" path="res://XRCamera3D.gd" id="2_wulik"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_xu7ia"]
 [ext_resource type="Script" path="res://left_hand.gd" id="3_tlmpc"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_xdfrx"]
@@ -21,7 +22,8 @@ sky = SubResource("Sky_qbqh3")
 script = ExtResource("1_vn4nm")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79846, 0.645285)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 8.40989, 13.7683)
+script = ExtResource("2_wulik")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -38,6 +40,8 @@ left = 0
 right = 0
 up = 0
 down = 0
+trigger = 0.0
+trigger_action = "trigger"
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -47,6 +51,11 @@ pose = &"aim"
 [node name="RightHandCon" parent="XROrigin3D/RightHand" instance=ExtResource("3_xdfrx")]
 visible = false
 script = ExtResource("5_p0qgy")
+left = 0
+right = 0
+up = 0
+down = 0
+trigger = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_20rn7")
@@ -58,5 +67,3 @@ transform = Transform3D(0.983293, -0.128714, 0.128714, 0, 0.707107, 0.707107, -0
 transform = Transform3D(0.999977, 0, 0.0068242, -0.00254004, 0.928148, 0.372202, -0.00633387, -0.37221, 0.928127, 0.00564003, 1.32626, -3.75769)
 
 [node name="Floor" parent="." instance=ExtResource("10_da7ig")]
-
-[connection signal="input_vector2_changed" from="XROrigin3D/LeftHand" to="CharacterBody" method="_on_left_hand_input_vector_2_changed"]

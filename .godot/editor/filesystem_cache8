@@ -1,16 +1,18 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1697339313
-character_body.gd::GDScript::-1::1696579335::0::1::::<>CharacterBody3D<>::
-character_body.tscn::PackedScene::1644137484475078994::1696581338::0::1::::<><>::res://character_body.gd<>uid://bhfpmglxcoljg
+::res://::1697354833
+3209229.svg::CompressedTexture2D::4833431379292763527::1697350072::1697350202::1::::<><>::
+character_body.gd::GDScript::-1::1697353602::0::1::::<>CharacterBody3D<>::
+character_body.tscn::PackedScene::1644137484475078994::1697354797::0::1::::<><>::res://character_body.gd<>uid://bhfpmglxcoljg::::res://icon.svg<>uid://ca4l55nln3wgt::::res://3209229.svg
 export_presets.cfg::TextFile::-1::1696587055::0::1::::<><>::
-floor.tscn::PackedScene::1762855828852596002::1696581339::0::1::::<><>::uid://dys46yiwbyrsj
+floor.tscn::PackedScene::1762855828852596002::1697354797::0::1::::<><>::uid://dys46yiwbyrsj::::res://Name_1m x 1m.png
 icon.svg::CompressedTexture2D::2888996995529182484::1696476742::1696581344::1::::<><>::
-left_hand.gd::GDScript::-1::1696577915::0::1::::<>Node3D<>::
-main.gd::GDScript::-1::1696578002::0::1::::<>Node3D<>::
-main.tscn::PackedScene::782707635338127303::1696587944::0::1::::<><>::res://main.gd<>uid://xoox7aho0i6m::::res://character_body.tscn<>uid://b4kad2kuba1yn::::res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn<>res://left_hand.gd<>uid://l2n30mpbkdyw::::res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn<>res://right_hand.gd<>uid://0d68ire1ato1::::res://floor.tscn
+left_hand.gd::GDScript::-1::1697351037::0::1::::<>Node3D<>::
+main.gd::GDScript::-1::1697354711::0::1::::<>Node3D<>::
+main.tscn::PackedScene::782707635338127303::1697354797::0::1::::<><>::res://main.gd<>uid://xoox7aho0i6m::::res://character_body.tscn<>uid://b4kad2kuba1yn::::res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn<>res://left_hand.gd<>uid://l2n30mpbkdyw::::res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn<>res://right_hand.gd<>uid://0d68ire1ato1::::res://floor.tscn
 Name_1m x 1m.png::CompressedTexture2D::8882770524287153601::1696573849::1696581344::1::::<><>::
 openxr_action_map.tres::OpenXRActionMap::793711266183578221::1696476840::0::1::::<><>::
-right_hand.gd::GDScript::-1::1696487056::0::1::::<>Node3D<>::
+right_hand.gd::GDScript::-1::1697353136::0::1::::<>Node3D<>::
+XRCamera3D.gd::GDScript::-1::1697354554::0::1::::<>XROrigin3D<>::
 ::res://addons/::1696522564
 ::res://addons/godot-xr-tools/::1696522565
 CONTRIBUTORS.md::TextFile::-1::1696479328::0::1::::<><>::
@@ -95,7 +97,7 @@ hand_physics_bone.gd::GDScript::-1::1696479326::0::1::::XRToolsHandPhysicsBone<>
 License.md::TextFile::-1::1696479326::0::1::::<><>::
 physics_hand.gd::GDScript::-1::1696479326::0::1::::XRToolsPhysicsHand<>XRToolsHand<>::
 ::res://addons/godot-xr-tools/hands/animations/::1696522564
-::res://addons/godot-xr-tools/hands/animations/left/::1696587944
+::res://addons/godot-xr-tools/hands/animations/left/::1697346563
 AnimationPlayer.tscn::PackedScene::1348338211824726535::1696479326::0::1::::<><>::uid://dgfeikrugfewi
 Cup.res::Animation::7590974708412206284::1696479326::0::1::::<><>::
 Default pose.res::Animation::7978875689906027064::1696479326::0::1::::<><>::
@@ -106,7 +108,7 @@ Grip 4.res::Animation::7295099457076786082::1696479326::0::1::::<><>::
 Grip 5.res::Animation::2673866244220991652::1696479326::0::1::::<><>::
 Grip Shaft.res::Animation::947226568896451102::1696479326::0::1::::<><>::
 Grip.res::Animation::1075547560655330150::1696479326::0::1::::<><>::
-hand_blend_tree.tres::AnimationNodeBlendTree::8000931627586676636::1696587944::0::1::::<><>::
+hand_blend_tree.tres::AnimationNodeBlendTree::8000931627586676636::1697346563::0::1::::<><>::
 Hold.res::Animation::3002329105171642897::1696479326::0::1::::<><>::
 Horns.res::Animation::6748282567936908705::1696479326::0::1::::<><>::
 Metal.res::Animation::7519107566372913432::1696479326::0::1::::<><>::
@@ -133,7 +135,7 @@ Sign_Point.res::Animation::6570490880079797409::1696479326::0::1::::<><>::
 Straight.res::Animation::2049549906742426534::1696479326::0::1::::<><>::
 Surfer.res::Animation::8978704289758581818::1696479326::0::1::::<><>::
 Thumb.res::Animation::4009559863906171416::1696479326::0::1::::<><>::
-::res://addons/godot-xr-tools/hands/animations/right/::1696587944
+::res://addons/godot-xr-tools/hands/animations/right/::1697346563
 AnimationPlayer.tscn::PackedScene::4018207629101171331::1696479326::0::1::::<><>::uid://do01jton6rk42
 Cup.res::Animation::8195111040024005301::1696479326::0::1::::<><>::
 Default pose.res::Animation::753131858148690599::1696479326::0::1::::<><>::
@@ -144,7 +146,7 @@ Grip 4.res::Animation::9032470046656576133::1696479326::0::1::::<><>::
 Grip 5.res::Animation::1318376778329847596::1696479326::0::1::::<><>::
 Grip Shaft.res::Animation::7095643256860440737::1696479326::0::1::::<><>::
 Grip.res::Animation::4920554403641237694::1696479326::0::1::::<><>::
-hand_blend_tree.tres::AnimationNodeBlendTree::912215260637445682::1696587944::0::1::::<><>::
+hand_blend_tree.tres::AnimationNodeBlendTree::912215260637445682::1697346563::0::1::::<><>::
 Hold.res::Animation::3923507217133086158::1696479326::0::1::::<><>::
 Horns.res::Animation::5002304244875762093::1696479326::0::1::::<><>::
 Metal.res::Animation::4232978752073040327::1696479326::0::1::::<><>::

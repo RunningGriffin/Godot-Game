@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://xoox7aho0i6m"]
+[gd_scene load_steps=5 format=3 uid="uid://xoox7aho0i6m"]
 
 [ext_resource type="Script" path="res://character_body.gd" id="1_b0o01"]
 [ext_resource type="Texture2D" uid="uid://bhfpmglxcoljg" path="res://icon.svg" id="1_qcsye"]
+[ext_resource type="Texture2D" uid="uid://ca4l55nln3wgt" path="res://3209229.svg" id="3_c4gqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00ae8"]
 size = Vector3(1.257, 1.1, 1)
@@ -20,3 +21,10 @@ transform = Transform3D(1, -0.000111375, -4.85224e-05, 0.000121481, 0.920293, 0.
 
 [node name="Sprite3D" type="Sprite3D" parent="Marker3D"]
 texture = ExtResource("1_qcsye")
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(0.0837768, 0.98488, 0.151645, 0.761484, 0.0348846, -0.647247, -0.64275, 0.1697, -0.747047, 0.999289, 1.2324, -1.38952)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D2"]
+transform = Transform3D(0.15, -7.45058e-09, 3.72529e-09, 5.58794e-09, 0.15, 3.72529e-09, -7.45058e-09, 0, 0.15, 0, 0, 0)
+texture = ExtResource("3_c4gqe")

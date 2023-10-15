@@ -8,7 +8,7 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	pass
+	$Marker3D2/Sprite3D.hide()
 
 func _physics_process(delta):
 	
@@ -17,20 +17,25 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+#	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+#		velocity.y = JUMP_VELOCITY
+	
+	if get_parent().left_trigger > .5:
+		$Marker3D2/Sprite3D.show()
+	else:
+		$Marker3D2/Sprite3D.hide()
 		
-	if get_parent().right > 0:
-		velocity.x = get_parent().right
-	elif get_parent().left < 0:
-		velocity.x = get_parent().left
+	if get_parent().left_right > 0:
+		velocity.x = get_parent().left_right
+	elif get_parent().left_left < 0:
+		velocity.x = get_parent().left_left
 	else:
 		velocity.x = 0
 
-	if get_parent().up > 0:
-		velocity.z = get_parent().up
-	elif get_parent().down < 0:
-		velocity.z = get_parent().down
+	if get_parent().left_up > 0:
+		velocity.z = get_parent().left_up
+	elif get_parent().left_down < 0:
+		velocity.z = get_parent().left_down
 	else:
 		velocity.z = 0
 	
@@ -53,4 +58,7 @@ func _physics_process(delta):
 	#	velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	move_and_slide()
+	
+func get_pos():
+	return position
 

@@ -1,16 +1,16 @@
 extends Node3D
 
-## XR Tools Hand Script
-##
-## This script manages a godot-xr-tools hand.
-##
+
 @export var left = 0
 @export var right = 0
 @export var up = 0
 @export var down = 0
+@export var trigger = 0.0
 
 ## Name of the Primary Action in the OpenXR Action Map.
 @export var joystick_action : String = "primary"
+
+@export var trigger_action : String = "trigger"
 
 ## Controller used for input/tracking
 var _controller : XRController3D
@@ -33,6 +33,9 @@ func _process(_delta: float) -> void:
 	# Animate the hand mesh with the controller inputs
 	if _controller:
 		var primary : Vector2 = _controller.get_vector2(joystick_action)
+		var trigger_click : float = _controller.get_float(trigger_action)
+		
+		trigger = trigger_click
 		
 		if primary.x > .25:
 			right = primary.x
