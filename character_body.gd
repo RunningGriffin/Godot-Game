@@ -6,56 +6,67 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var left_hand_con = $"../XROrigin3D/LeftHand/LeftHandCon"
+
+var direction = 0
+var trig_pressed = 0
+
+signal left_attack
 
 func _ready():
-	$Marker3D2/Sprite3D.hide()
+	pass
 
 func _physics_process(delta):
-	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor(): 
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
 #	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 #		velocity.y = JUMP_VELOCITY
 	
-	if get_parent().left_trigger > .5:
-		$Marker3D2/Sprite3D.show()
-	else:
-		$Marker3D2/Sprite3D.hide()
-		
-	if get_parent().left_right > 0:
-		velocity.x = get_parent().left_right
-	elif get_parent().left_left < 0:
-		velocity.x = get_parent().left_left
+	if left_hand_con.trigger > .9:
+		if trig_pressed == 0:
+			left_attack.emit()
+			trig_pressed = 1
+		else:
+			pass
+			
+	if left_hand_con.trigger == 0:
+		trig_pressed = 0
+	
+	#Handle Velocity Based on Left Joystick
+	if left_hand_con.right > 0:
+		velocity.x = left_hand_con.right
+		#Track direction of player for interactions
+		if left_hand_con.right > .35:
+			direction = 1
+	elif left_hand_con.left < 0:
+		velocity.x = left_hand_con.left
+		if left_hand_con.left < -.35:
+			direction = 3
 	else:
 		velocity.x = 0
 
-	if get_parent().left_up > 0:
-		velocity.z = get_parent().left_up
-	elif get_parent().left_down < 0:
-		velocity.z = get_parent().left_down
+	if left_hand_con.up > 0:
+		velocity.z = left_hand_con.up
+		if left_hand_con.up > .35:
+			direction = 0
+	elif left_hand_con.down < 0:
+		velocity.z = left_hand_con.down
+		if left_hand_con.down < -.35:
+			direction = 2
 	else:
 		velocity.z = 0
 	
+	#Reverse velocity z
 	velocity.z = velocity.z * -1
 	
+	#Make diagonial speed normalized (prevents faster diagonal movement)
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * SPEED
 	
 	position += velocity * delta
-	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir = Input.get_vector(get_parent().left, get_parent().right, get_parent().up, get_parent().down)
-	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#if direction:
-	#	velocity.x = direction.x * SPEED
-	#	velocity.z = direction.z * SPEED
-	#else:
-	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-	#	velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	move_and_slide()
 	

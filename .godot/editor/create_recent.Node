@@ -1,11 +1,14 @@
+StaticBody3D
+CollisionShape3D
+CollisionShape2D
+RigidBody3D
+TileMap
 RemoteTransform3D
 Sprite3D
 Marker3D
 AnimatedSprite3D
-CollisionShape3D
 CharacterBody3D
 MeshInstance3D
-StaticBody3D
 DirectionalLight3D
 WorldEnvironment
 XRController3D

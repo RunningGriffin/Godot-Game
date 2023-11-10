@@ -22,7 +22,7 @@ sky = SubResource("Sky_qbqh3")
 script = ExtResource("1_vn4nm")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 8.40989, 13.7683)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 8.64662, 16.4961)
 script = ExtResource("2_wulik")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
@@ -67,3 +67,5 @@ transform = Transform3D(0.983293, -0.128714, 0.128714, 0, 0.707107, 0.707107, -0
 transform = Transform3D(0.999977, 0, 0.0068242, -0.00254004, 0.928148, 0.372202, -0.00633387, -0.37221, 0.928127, 0.00564003, 1.32626, -3.75769)
 
 [node name="Floor" parent="." instance=ExtResource("10_da7ig")]
+
+[connection signal="left_attack" from="CharacterBody" to="." method="_on_character_body_left_attack"]

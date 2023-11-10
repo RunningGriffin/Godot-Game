@@ -1,14 +1,8 @@
 extends Node3D
 
-#left controller vars
-var left_right = 0
-var left_left = 0
-var left_up = 0
-var left_down = 0
-var left_trigger = 0.0
-
 #character postion
 var char_pos : Vector3 
+var char_direction = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,9 +18,26 @@ func _process(_delta):
 	
 func update_var():
 	char_pos = $CharacterBody.position
-	var left_controller = $XROrigin3D/LeftHand/LeftHandCon
-	left_right = left_controller.right
-	left_left = left_controller.left
-	left_up = left_controller.up
-	left_down = left_controller.down
-	left_trigger = left_controller.trigger
+
+func _on_character_body_left_attack():
+	char_direction = $CharacterBody.direction
+	if ! $Floor/RockLar:
+		pass
+	else:
+		if char_direction == 0:
+			if char_pos.z + 2 >= $Floor/RockLar.position.z and char_pos.x + 2 >= $Floor/RockLar.position.x and char_pos.x - 2 <= $Floor/RockLar.position.x:
+				print('rock is dead')
+				$Floor/RockLar.queue_free()
+		if char_direction == 1:
+			if char_pos.z + 2 >= $Floor/RockLar.position.z and char_pos.z - 2 <= $Floor/RockLar.position.z and char_pos.x + 2 >= $Floor/RockLar.position.x:
+				print('rock is dead')
+				$Floor/RockLar.queue_free()
+		if char_direction == 2:
+			if char_pos.z - 2 <= $Floor/RockLar.position.z and char_pos.x + 2 >= $Floor/RockLar.position.x and char_pos.x - 2 <= $Floor/RockLar.position.x:
+				print('rock is dead')
+				$Floor/RockLar.queue_free()
+		if char_direction == 3:
+			if char_pos.z + 2 >= $Floor/RockLar.position.z and char_pos.z - 2 <= $Floor/RockLar.position.z and char_pos.x - 2 <= $Floor/RockLar.position.x:
+				print('rock is dead')
+				$Floor/RockLar.queue_free()
+#		if char_pos.z + 50 >= $Floor/RockLar.position.z and char_pos.z - 50 <= $Floor/RockLar.position.z and char_pos.x + 50 >= $Floor/RockLar.position.x and char_pos.x - 50 <= $Floor/RockLar.position.x:
