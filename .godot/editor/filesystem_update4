@@ -1,7 +1,3 @@
-res://main.tscn
+res://floor.tscn
 res://addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres
 res://addons/godot-xr-tools/hands/animations/right/hand_blend_tree.tres
-res://character_body.gd
-res://main.gd
-res://character_body.tscn
-res://floor.tscn

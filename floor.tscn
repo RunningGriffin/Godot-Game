@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://0d68ire1ato1"]
 
-[ext_resource type="Texture2D" uid="uid://dys46yiwbyrsj" path="res://Name_1m x 1m.png" id="1_fvb3n"]
+[ext_resource type="Texture2D" uid="uid://qffg5o02d3p0" path="res://Images/tileable_grass_00.png" id="1_7dfo8"]
 [ext_resource type="PackedScene" uid="uid://63f4l6jk0jxn" path="res://Images/GLTF format/treeHighCrooked.glb" id="2_wq80h"]
 [ext_resource type="PackedScene" uid="uid://bpv8xavap50ru" path="res://Images/GLTF format/rockLarge.glb" id="3_8d7cc"]
 [ext_resource type="PackedScene" uid="uid://cmou8p683xo6e" path="res://Images/GLTF format/treeHighRound.glb" id="4_sr1nk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77o3d"]
-albedo_texture = ExtResource("1_fvb3n")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sb1pe"]
+albedo_texture = ExtResource("1_7dfo8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_et2iq"]
 size = Vector3(50, 1, 50)
@@ -27,7 +27,7 @@ size = Vector3(1, 3.17168, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_77o3d")
+material_override = SubResource("StandardMaterial3D_sb1pe")
 mesh = SubResource("BoxMesh_et2iq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
